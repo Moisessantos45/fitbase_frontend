@@ -1,0 +1,404 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap");
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+@theme {
+  --breakpoint-wide: 82rem;
+  --color-primary: #d2f801;
+  --color-primary-dark: #9cb800;
+  --color-on-primary: #101010;
+  --color-surface: #1c1c1e;
+  --color-surface-light: #2c2c2e;
+  --color-surface-hover: #3a3a3c;
+  --color-card: #18181a;
+  --color-card-highlight: #222226;
+  --color-bg-base: #101010;
+  --color-text-main: #ffffff;
+  --color-text-sub: #8e8e93;
+  --color-text-muted: #636366;
+  --color-success: #30d158;
+  --color-warning: #ff9f0a;
+  --color-error: #ff453a;
+  --color-error-hover: #d9382e;
+  --color-info: #0a84ff;
+}
+
+:root {
+  --color-bg: #101010;
+  --color-surface: #1c1c1e;
+  --color-surface-light: #2c2c2e;
+  --color-surface-hover: #3a3a3c;
+  --color-card: #18181a;
+  --color-card-highlight: #222226;
+  --color-border: #2c2c2e;
+  --color-primary: #d2f801;
+  --color-primary-dark: #9cb800;
+  --color-on-primary: #101010;
+  --color-text-primary: #ffffff;
+  --color-text-secondary: #8e8e93;
+  --color-text-muted: #636366;
+  --color-success: #30d158;
+  --color-warning: #ff9f0a;
+  --color-error: #ff453a;
+  --color-error-hover: #d9382e;
+  --color-info: #0a84ff;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--color-bg);
+  color: var(--color-text-primary);
+  font-family:
+    "Inter",
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-surface-light);
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-primary);
+}
+
+/* Corregir el fondo blanco del autocompletado del navegador */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active,
+textarea:-webkit-autofill,
+select:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 1000px #1c1c1e inset !important;
+  -webkit-text-fill-color: #ffffff !important;
+  caret-color: #ffffff !important;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-in-scale {
+  from {
+    opacity: 0;
+    transform: scale(0.97);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes slide-in-left {
+  from {
+    opacity: 0;
+    transform: translateX(-8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slide-in-right {
+  from {
+    opacity: 0;
+    transform: translateX(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.25s ease both;
+}
+
+.animate-fade-in-scale {
+  animation: fade-in-scale 0.2s ease both;
+}
+
+.animate-slide-left {
+  animation: slide-in-left 0.22s ease both;
+}
+
+@keyframes slide-in-from-right {
+  from {
+    transform: translateX(100%);
+  }
+
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes slide-out-to-right {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(100%);
+  }
+}
+
+.animate-slide-from-right {
+  animation: slide-in-from-right 0.3s ease both;
+}
+
+.animate-slide-to-right {
+  animation: slide-out-to-right 0.25s ease both;
+}
+
+@keyframes card-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.card-list-enter-active {
+  animation: card-in 0.22s ease both;
+}
+
+.card-list-enter-active {
+  transition-delay: var(--stagger-delay, 0ms);
+  animation-delay: var(--stagger-delay, 0ms);
+}
+
+.card-list-leave-active {
+  position: absolute;
+  transition:
+    opacity 0.15s ease,
+    transform 0.15s ease;
+}
+
+.card-list-leave-to {
+  opacity: 0;
+  transform: translateY(-6px);
+}
+
+.card-list-move {
+  transition: transform 0.22s ease;
+}
+
+.grid-fade-enter-active {
+  transition: opacity 0.2s ease;
+}
+
+.grid-fade-leave-active {
+  transition: opacity 0.15s ease;
+}
+
+.grid-fade-enter-from,
+.grid-fade-leave-to {
+  opacity: 0;
+}
+
+.gradient-card-lime {
+  background: linear-gradient(135deg, #222904 0%, #1c1c1e 100%);
+}
+
+.gradient-gold-dark {
+  background: linear-gradient(135deg, #263300 0%, #1c1c1e 100%);
+}
+
+.btn-primary {
+  height: 54px;
+  background-color: var(--color-primary);
+  color: var(--color-on-primary);
+  font-weight: 700;
+  font-size: 16px;
+  border-radius: 16px;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  cursor: pointer;
+  transition:
+    transform 0.15s ease,
+    background-color 0.15s ease;
+  width: 100%;
+}
+
+.btn-primary:hover {
+  background-color: var(--color-primary-dark);
+  transform: translateY(-1px);
+}
+
+.btn-primary:active {
+  transform: translateY(0);
+}
+
+.btn-secondary {
+  height: 54px;
+  background-color: var(--color-surface-light);
+  color: var(--color-text-primary);
+  font-weight: 700;
+  font-size: 16px;
+  border-radius: 16px;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  cursor: pointer;
+  transition:
+    background-color 0.15s ease,
+    transform 0.15s ease;
+  width: 100%;
+}
+
+.btn-secondary:hover {
+  background-color: var(--color-surface-hover);
+  transform: translateY(-1px);
+}
+
+.btn-outlined {
+  height: 54px;
+  background-color: transparent;
+  color: var(--color-primary);
+  border: 1.5px solid var(--color-primary);
+  font-weight: 700;
+  font-size: 15px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  width: 100%;
+}
+
+.btn-outlined:hover {
+  background-color: rgba(210, 248, 1, 0.1);
+  transform: translateY(-1px);
+}
+
+.input-field {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-surface-light);
+  border-radius: 16px;
+  color: var(--color-text-primary);
+  font-size: 15px;
+  padding: 16px;
+  outline: none;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+  width: 100%;
+}
+
+.input-field:focus {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 1px var(--color-primary);
+}
+
+.input-field::placeholder {
+  color: var(--color-text-muted);
+}
+
+.nav-link.active {
+  background-color: rgba(210, 248, 1, 0.12);
+  color: var(--color-primary);
+  border-left: 3px solid var(--color-primary);
+}
+
+.mobile-nav-item.active {
+  color: var(--color-primary);
+}
+
+.mobile-nav-item.active svg,
+.mobile-nav-item.active i {
+  color: var(--color-primary);
+}
+
+.tab-btn.active {
+  color: var(--color-primary);
+  border-bottom: 2px solid var(--color-primary);
+}
+
+.map-grid-pattern {
+  background-size: 32px 32px;
+  background-image:
+    linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+}
+
+.toggle-checkbox:checked {
+  right: 0;
+  border-color: var(--color-primary);
+  background-color: var(--color-primary);
+}
+
+.toggle-checkbox:checked + .toggle-label {
+  background-color: rgba(210, 248, 1, 0.3);
+}
+
+.leaflet-popup-content-wrapper {
+  background: #1c1c1e !important;
+  color: #ffffff !important;
+  border: 1px solid #2c2c2e !important;
+  border-radius: 16px !important;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5) !important;
+}
+
+.leaflet-popup-tip {
+  background: #1c1c1e !important;
+}
+
+.leaflet-container {
+  background: #101010 !important;
+  font-family: inherit !important;
+}
+
+.leaflet-tile-pane {
+  filter: brightness(0.85) invert(1) contrast(1.15) hue-rotate(190deg) saturate(0.4);
+}
+
+.fitbase-pin,
+.fitbase-admin-pin {
+  background: transparent;
+  border: none;
+}
