@@ -1,7 +1,7 @@
 <template>
-  <div class="min-h-screen bg-bg-base text-white flex">
+  <div class="h-screen bg-bg-base text-white flex overflow-hidden">
     <aside
-      class="hidden lg:flex w-64 bg-surface border-r border-surface-light flex-col justify-between shrink-0 sticky top-0 h-screen"
+      class="hidden lg:flex w-64 bg-surface border-r border-surface-light flex-col justify-between shrink-0 h-full overflow-y-auto"
     >
       <div class="p-5">
         <div
@@ -158,7 +158,7 @@
         </nav>
       </div>
 
-      <div class="p-5 border-t border-surface-light">
+      <div class="p-5 border-t border-surface-light shrink-0">
         <button
           @click="logout"
           class="w-full flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl text-xs font-bold text-error bg-error/10 hover:bg-error/20 transition"
@@ -168,10 +168,12 @@
       </div>
     </aside>
 
-    <main
-      class="flex-1 max-w-300 w-full mx-auto px-4 sm:px-6 lg:px-10 py-6 pb-24 lg:pb-12 space-y-6"
-    >
-      <slot />
+    <main class="flex-1 h-full overflow-y-auto min-w-0">
+      <div
+        class="max-w-300 w-full mx-auto px-4 sm:px-6 lg:px-10 py-6 pb-24 lg:pb-12 space-y-6"
+      >
+        <slot />
+      </div>
     </main>
 
     <nav
