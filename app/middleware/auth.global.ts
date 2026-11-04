@@ -4,12 +4,14 @@ export default defineNuxtRouteMiddleware(async (to, _) => {
 	const ownerStore = useOwnerStore();
 	const managerStore = useManagerStore();
 
+	const path = to.path.length > 1 && to.path.endsWith("/") ? to.path.slice(0, -1) : to.path;
+
 	const publicPaths = ["/", "/guest", "/login", "/register", "/payment/success", "/payment/cancel"];
 	const isPublicRoute =
-		publicPaths.includes(to.path) ||
-		to.path.startsWith("/payment/") ||
-		to.path.startsWith("/forgot-password") ||
-		to.path.startsWith("/confirm-account");
+		publicPaths.includes(path) ||
+		path.startsWith("/payment/") ||
+		path.startsWith("/forgot-password") ||
+		path.startsWith("/confirm-account");
 
 	const requiresAuth =
 		!isPublicRoute || to.meta.requiresAuth === true || Boolean(to.meta.roles);
@@ -34,7 +36,7 @@ export default defineNuxtRouteMiddleware(async (to, _) => {
 	const cashRegisterStore = useCashRegisterStore();
 
 	const isLoginPage =
-		to.path === "/" || to.path === "/login" || to.path === "/register";
+		path === "/" || path === "/login" || path === "/register";
 	if (authStore.authenticated && isLoginPage) {
 		if (authStore.authData?.fullProfile === false) {
 			return navigateTo(targetProfile);
