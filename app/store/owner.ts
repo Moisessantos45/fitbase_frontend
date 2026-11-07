@@ -7,7 +7,6 @@ export const useOwnerStore = defineStore("owner", () => {
     return await exec(() => apiAuth.get("/owner/me"), {
       mapper(res) {
         const extractedData = res.data.data ?? null;
-        console.log("extractedData", extractedData);
         if (!extractedData) {
           throw new Error(
             "Error al obtener el usuario. Por favor, intenta de nuevo.",

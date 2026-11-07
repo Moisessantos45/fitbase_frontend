@@ -32,7 +32,6 @@ export const useGymStore = defineStore("gym", () => {
     return await exec(() => apiAuth.get("/gyms/my-gym"), {
       mapper(res) {
         const extractedData = res.data.data;
-        console.log("extractedData", extractedData);
         if (!isRecord(extractedData)) {
           throw new Error("No se encontraron datos para la sede del usuario.");
         }

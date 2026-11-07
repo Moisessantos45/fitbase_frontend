@@ -106,7 +106,6 @@ export const useAuthStore = defineStore("auth", () => {
       await exec(() => apiAuth.get("/auth/session"), {
         mapper: (res) => {
           const extractedData = res.data.data ?? null;
-          console.log("Extracted Data:", extractedData); // Debugging line
           return extractedData ? authMapper(extractedData) : null;
         },
         onSuccess: (mappedData) => {

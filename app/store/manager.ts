@@ -54,8 +54,6 @@ export const useManagerStore = defineStore("manager", () => {
     return await exec(() => apiAuth.get("/managers/me"), {
       mapper(res) {
         const extractedData = res.data.data ?? null;
-        console.log("res.data", res.data);
-        console.log("extractedData", extractedData);
         if (!extractedData) {
           throw new Error(
             "Error al obtener el usuario. Por favor, intenta de nuevo.",

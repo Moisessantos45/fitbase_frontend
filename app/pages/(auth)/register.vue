@@ -181,13 +181,6 @@ const requirements = computed(() => [
 ]);
 
 const handleSubmit = async () => {
-  console.log("Submitting form with:", {
-    email: email.value,
-    password: password.value,
-    confirmPassword: confirmPassword.value,
-    userType: userType.value,
-    acceptTerms: acceptTerms.value,
-  });
   if (password.value !== confirmPassword.value) {
     useAuth.setAlertMessage({
       error: true,
