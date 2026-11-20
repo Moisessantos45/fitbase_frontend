@@ -6,7 +6,7 @@ Aplicación web de **Fitbase**: plataforma de gestión de gimnasios, membresías
 
 | Proyecto | Tecnología | Repositorio |
 | :--- | :--- | :--- |
-| Backend API (principal) | Go (Gin + GORM + PostgreSQL + Redis) | [Moisessantos45/fitbase-backend](https://github.com/Moisessantos45/fitbase-backend) |
+| Backend API (principal) | Go (Gin + GORM + PostgreSQL + Redis) | [Moisessantos45/fitbase_backend](https://github.com/Moisessantos45/fitbase_backend) |
 | Backend API (alternativo) | PHP | [Moisessantos45/fitbase_backend_php](https://github.com/Moisessantos45/fitbase_backend_php) |
 | Versión móvil | App móvil | [Moisessantos45/fitbase](https://github.com/Moisessantos45/fitbase) |
 | Frontend web (este repo) | Nuxt 4 / Vue 3 | [Moisessantos45/fitbase_frontend](https://github.com/Moisessantos45/fitbase_frontend) |
